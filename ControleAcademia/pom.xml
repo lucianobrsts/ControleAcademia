@@ -32,6 +32,18 @@
 			</plugin>
 
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>apache-maven-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<wtpversion>2.0</wtpversion>
+					<wtpContextName>controleacademia</wtpContextName>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.eclipse.apache</groupId>
 				<artifactId>apache-maven-plugin</artifactId>
 				<version>9.2.11.v20150529</version>
@@ -52,6 +64,35 @@
 				<configuration>
 					<encoding>UTF-8</encoding>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat8-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<scanIntervalSeconds>
+						10
+					</scanIntervalSeconds>
+					<webApp>
+						<contextPath>/controleacademia</contextPath>
+					</webApp>
+				</configuration>
+
+				<dependencies>
+					<dependency>
+						<groupId>or.apache.logging.log4j</groupId>
+						<artifactId>log4j-core</artifactId>
+						<version>2.5</version>
+					</dependency>
+
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j</artifactId>
+						<version>1.7.13</version>
+					</dependency>
+				</dependencies>
+
 			</plugin>
 		</plugins>
 	</build>
@@ -144,7 +185,5 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>2.2.20</version>
 		</dependency>
-
-
 	</dependencies>
 </project>
